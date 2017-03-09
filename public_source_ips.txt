@@ -1,0 +1,8 @@
+# This file contains the ranges or ips from which your application will be accessible
+# Your public ip from which you provision the application and infrastructure will be added by the generate.sh script
+# So there's no need to add that one
+# Each line should contain a CIDR block f.i.
+# 0.0.0.0/0
+# 10.2.1.45/32
+8.8.8.8/32
+1.1.1.1/32
