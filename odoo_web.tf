@@ -59,7 +59,7 @@ provisioner "file" {
        				private_key = "${file("${var.PATH_PRIVATE_SSH_KEY}")}"
     					    }
     			}
-
+}
 ### Create AWS keypair with public key
 
 resource "aws_key_pair" "devopskey1" {
