@@ -1,8 +1,10 @@
-secrets/
 terraform.tfstate
 terraform.tfstate.backup
 terraform.tfvars
+secrets.tfvars
 securitygroups.tf
 *.tfout
+*.pem
+devops*.*
 cloudflare_ips.txt
 ips.txt
