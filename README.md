@@ -1,18 +1,15 @@
- # Odoo10-Terraform-AWS
 
+# Automate Odoo 10 deployment on AWS with Terraform in Multi AZ setup
 
-
-## Automate Odoo 10 deployment on AWS with Terraform in Multi AZ setup
-
-### Building blocks used:
+## Building blocks used:
 
 - AWS EC2
 - AWS ELB
 - AWS RDS
 - CloudFlare
 
-### Preliminary tasks
-=====================
+## Preliminary tasks
+====================
 
 1) Download and install [Terraform](https://www.terraform.io/downloads.html).
 Place the terraform binary in your environment path.
@@ -22,15 +19,18 @@ Place the terraform binary in your environment path.
 In OSX or Linux use the following command:
 
 ```
-echo ""| ssh-keygen -t rsa -q -C devopskey1 -f secrets/devopskey1```
+echo ""| ssh-keygen -t rsa -q -C devopskey1 -f secrets/devopskey1
+```
+
 
 3) Create RSA keypair for using TLS on Odoo reverse proxy servers
 
 ```
-openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -nodes -days 730```
+openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -nodes -days 730
+```
 
 
-
+4) Run Terraform
 
 
 ```
