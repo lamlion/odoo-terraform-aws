@@ -34,8 +34,10 @@ openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -nodes -days 73
 
 
 ```
-terraform plan -out anyfile.tfout```
+terraform plan -out anyfile.tfout
+```
 
 
 ```
-terraform apply anyfile.tfout```
+terraform apply anyfile.tfout
+```
