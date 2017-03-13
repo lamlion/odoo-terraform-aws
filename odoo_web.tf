@@ -24,10 +24,21 @@ resource "aws_instance" "odoo"
     				}
 
 
-# Copies the file as the ubuntu user using SSH
+# Copies files as the ubuntu user using SSH
+
 
 provisioner "file" {
-    source = "odoo_apache.conf"
+    source = "files-to-copy/provision_odoo.sh"
+    destination = "/tmp/provision_odoo.sh"
+ 	connection {
+                  type = "ssh"
+                  user = "ubuntu"
+                  private_key = "${file("${var.PATH_PRIVATE_SSH_KEY}")}"
+                  }
+}
+
+provisioner "file" {
+    source = "files-to-copy/odoo_apache.conf"
     destination = "/tmp/odoo_apache.conf"
  	connection {
                   type = "ssh"
@@ -36,22 +47,13 @@ provisioner "file" {
                   }
 }
 
-provisioner "file" {
-    source = "files-to-copy/"
-    destination = "/tmp/"
- 	connection {
-                  type = "ssh"
-                  user = "ubuntu"
-                  private_key = "${file("${var.PATH_PRIVATE_SSH_KEY}")}"
-                  }
-}
 
   provisioner "remote-exec"	{
 			inline = [
 
 			"sudo chmod +x /tmp/provision_odoo.sh",
 			"/tmp/provision_odoo.sh",
-			"sudo mv /tmp/odoo_apache.conf /etc/apache2/sites-available/odoo.conf"
+			"sudo cp /tmp/odoo_apache.conf /etc/apache2/sites-available/odoo.conf"
 				]
 				connection {
        				type = "ssh"
