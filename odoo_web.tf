@@ -53,8 +53,9 @@ provisioner "file" {
 
 			"cd /tmp && sudo tar zxvf files.tar.gz",
 			"sudo chmod +x /tmp/provision_odoo.sh",
-			"/tmp/provision_odoo.sh",
-			"sudo cp /tmp/odoo_apache.conf /etc/apache2/sites-available/odoo.conf"
+			"sudo cp /tmp/odoo_apache.conf /etc/apache2/sites-available/odoo.conf",
+			"/tmp/provision_odoo.sh"
+
 				]
 				connection {
        				type = "ssh"
