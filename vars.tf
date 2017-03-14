@@ -7,4 +7,5 @@ variable "PATH_PRIVATE_SSH_KEY" {}
 variable "PATH_PUBLIC_SSH_KEY" {}
 variable "CLOUDFLARE_EMAIL" {}
 variable "CLOUDFLARE_TOKEN" {}
+variable "CLOUDFLARE_DOMAIN" {}
 variable "SECRET_PATH" {default = "secrets/"}
