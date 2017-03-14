@@ -12,7 +12,12 @@
 ====================
 
 1) Download and install [Terraform](https://www.terraform.io/downloads.html).
+
+<a href="https://www.terraform.io/downloads.html" target="_blank"> To open Terraform in a new window</a>
+
 Place the terraform binary in your environment path.
+
+To open in new window: <a href="https://www.terraform.io/downloads.html" target="_blank">Terraform</a>
 
 2) Create RSA keypair for accessing EC2 instance. Public key will be copied to EC2 instance.
 
