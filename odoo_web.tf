@@ -28,8 +28,8 @@ resource "aws_instance" "odoo"
 
 
 provisioner "file" {
-    source = "files-to-copy/provision_odoo.sh"
-    destination = "/tmp/provision_odoo.sh"
+    source = "files-to-copy/files.tar.gz"
+    destination = "/tmp/files.tar.gz"
  	connection {
                   type = "ssh"
                   user = "ubuntu"
@@ -37,20 +37,21 @@ provisioner "file" {
                   }
 }
 
-provisioner "file" {
-    source = "files-to-copy/odoo_apache.conf"
-    destination = "/tmp/odoo_apache.conf"
- 	connection {
-                  type = "ssh"
-                  user = "ubuntu"
-                  private_key = "${file("${var.PATH_PRIVATE_SSH_KEY}")}"
-                  }
-}
+#provisioner "file" {
+#    source = "files-to-copy/odoo_apache.conf"
+#    destination = "/tmp/odoo_apache.conf"
+# 	connection {
+#                  type = "ssh"
+#                  user = "ubuntu"
+#                  private_key = "${file("${var.PATH_PRIVATE_SSH_KEY}")}"
+#                  }
+#}
 
 
   provisioner "remote-exec"	{
 			inline = [
 
+			"cd /tmp && sudo tar zxvf files.tar.gz",
 			"sudo chmod +x /tmp/provision_odoo.sh",
 			"/tmp/provision_odoo.sh",
 			"sudo cp /tmp/odoo_apache.conf /etc/apache2/sites-available/odoo.conf"
