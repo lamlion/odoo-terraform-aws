@@ -74,8 +74,8 @@ resource "aws_key_pair" "devopskey1" {
 
 ### Create Cloudflare DNS CNAME with proxy
 
-resource "cloudflare_record" "odoo_get2it_eu" {
-    domain = "get2it.eu"
+resource "cloudflare_record" "odoo" {
+    domain = "${var.CLOUDFLARE_DOMAIN}"
     name = "odoo"
     value = "${aws_elb.elb-odoo.dns_name}" 
     type = "CNAME"
@@ -85,8 +85,8 @@ resource "cloudflare_record" "odoo_get2it_eu" {
 
 # Create Cloudflare DNS CNAME without proxy for direct access - ONLY FOR TESTING PURPOSES
 
-resource "cloudflare_record" "odooweb_get2it_eu" {
-    domain = "get2it.eu"
+resource "cloudflare_record" "odooweb" {
+    domain = "${var.CLOUDFLARE_DOMAIN}"
     name = "odoo-web1"
     value = "${aws_elb.elb-odoo.dns_name}" 
     type = "CNAME"
