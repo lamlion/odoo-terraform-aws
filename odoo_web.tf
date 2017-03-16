@@ -12,7 +12,7 @@ resource "aws_instance" "odoo"
 				delete_on_termination = "true"
 				}
   tags				{
-				Name = "odoo-web1-terraform" 
+				Name = "odoo-web1-terraform"
 				}
 
   provisioner "local-exec"	{
@@ -28,8 +28,8 @@ resource "aws_instance" "odoo"
 
 
 provisioner "file" {
-    source = "files-to-copy/files.tar.gz"
-    destination = "/tmp/files.tar.gz"
+    source = "files-to-copy/provision_odoo.sh"
+    destination = "/tmp/provision_odoo.sh"
  	connection {
                   type = "ssh"
                   user = "ubuntu"
@@ -37,15 +37,25 @@ provisioner "file" {
                   }
 }
 
-#provisioner "file" {
-#    source = "files-to-copy/odoo_apache.conf"
-#    destination = "/tmp/odoo_apache.conf"
-# 	connection {
-#                  type = "ssh"
-#                  user = "ubuntu"
-#                  private_key = "${file("${var.PATH_PRIVATE_SSH_KEY}")}"
-#                  }
-#}
+provisioner "file" {
+    source = "files-to-copy/odoo_apache.conf"
+    destination = "/tmp/odoo_apache.conf"
+ 	connection {
+                  type = "ssh"
+                  user = "ubuntu"
+                  private_key = "${file("${var.PATH_PRIVATE_SSH_KEY}")}"
+                  }
+}
+
+provisioner "file" {
+    source = "files-to-copy/odoo.conf"
+    destination = "/tmp/odoo.conf"
+ 	connection {
+                  type = "ssh"
+                  user = "ubuntu"
+                  private_key = "${file("${var.PATH_PRIVATE_SSH_KEY}")}"
+                  }
+}
 
 
   provisioner "remote-exec"	{
@@ -53,7 +63,6 @@ provisioner "file" {
 
 			"cd /tmp && sudo tar zxvf files.tar.gz",
 			"sudo chmod +x /tmp/provision_odoo.sh",
-			"sudo cp /tmp/odoo_apache.conf /etc/apache2/sites-available/odoo.conf",
 			"/tmp/provision_odoo.sh"
 
 				]
@@ -78,10 +87,10 @@ resource "aws_key_pair" "devopskey1" {
 resource "cloudflare_record" "odoo" {
     domain = "${var.CLOUDFLARE_DOMAIN}"
     name = "odoo"
-    value = "${aws_elb.elb-odoo.dns_name}" 
+    value = "${aws_elb.elb-odoo.dns_name}"
     type = "CNAME"
     ttl  = "1"
-    proxied = "true" 
+    proxied = "true"
 }
 
 # Create Cloudflare DNS CNAME without proxy for direct access - ONLY FOR TESTING PURPOSES
@@ -89,8 +98,8 @@ resource "cloudflare_record" "odoo" {
 resource "cloudflare_record" "odooweb" {
     domain = "${var.CLOUDFLARE_DOMAIN}"
     name = "odoo-web1"
-    value = "${aws_elb.elb-odoo.dns_name}" 
+    value = "${aws_elb.elb-odoo.dns_name}"
     type = "CNAME"
     ttl  = "1"
-    proxied = "false" 
+    proxied = "false"
 }

@@ -11,7 +11,7 @@
                         sudo apt-get update -y
 
 			sudo apt-get install postgresql -y
-			sudo -u postgres bash -c "psql -c \"CREATE USER odoo WITH PASSWORD 'odoo';\""
+			sudo -u postgres bash -c "psql -c \"CREATE ROLE odoo WITH PASSWORD 'odoo' CREATEDB LOGIN;\""
 
                         sudo apt-get install -y python-cups python-dateutil python-decorator python-docutils python-feedparser
                         sudo apt-get install -y python-gdata python-geoip python-gevent python-imaging python-jinja2 python-ldap python-libxslt1
@@ -36,7 +36,10 @@
                         sudo a2enmod proxy_connect
                         sudo a2enmod proxy_html
                         sudo a2dissite 000-default
-                        sudo mv /tmp/odoo_apache.conf /etc/apache2/sites-available/odoo.conf
+                        sudo cp /tmp/odoo_apache.conf /etc/apache2/sites-available/odoo.conf
 			sudo a2ensite odoo
 			sudo service apache2 restart
-
+			sudo cp /tmp/odoo.conf /etc/odoo/odoo.conf
+			sudo chown odoo:odoo /etc/odoo/odoo.conf
+			sudo chmod 640 /etc/odoo/odoo.conf
+			sudo service odoo restart

@@ -7,6 +7,8 @@ http http://httpbin.org/ip |grep origin|awk '{print $2'} |tr -d '"'
 wget -qO - http://httpbin.org/ip | grep origin|awk '{print $2'} |tr -d '"'
 openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -nodes -days 365
 
+Odoo installation blog:
+https://www.howtoforge.com/tutorial/install-odoo-erp-software-on-ubuntu-16-04/
 
 
 
@@ -32,4 +34,3 @@ python-werkzeug python-xlwt python-yaml wkhtmltopdf
 
 xmlrpc_interface = 127.0.0.1
 xmlrpc_port = 8069
-

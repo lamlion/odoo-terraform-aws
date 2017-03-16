@@ -8,3 +8,4 @@ securitygroups.tf
 devops*.*
 cloudflare_ips.txt
 ips.txt
+readme.txt
