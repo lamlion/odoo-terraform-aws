@@ -1,6 +1,5 @@
 terraform.tfstate
-terraform.tfstate.backup
-terraform.tfvars
+terraform.*
 secrets.tfvars
 securitygroups.tf
 *.tfout

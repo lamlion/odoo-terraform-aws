@@ -28,7 +28,7 @@ echo ""| ssh-keygen -t rsa -q -C devopskey1 -f secrets/devopskey1
 3) Create RSA keypair for using TLS on Odoo reverse proxy servers
 
 ```
-openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -nodes -days 730
+openssl req -x509 -newkey rsa:2048 -keyout key.pem -out cert.pem -nodes -days 730
 ```
 
 
