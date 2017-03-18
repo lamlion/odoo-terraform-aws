@@ -10,7 +10,9 @@ openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -nodes -days 36
 Odoo installation blog:
 https://www.howtoforge.com/tutorial/install-odoo-erp-software-on-ubuntu-16-04/
 
+https://www.techreceptives.com/blog/business-4/post/step-by-step-guide-to-install-odoo-v10-on-ubuntu-16-04-lts-138
 
+https://www.getopenerp.com/install-odoo-10-on-ubuntu-16-04/
 
 # Odoo dependencies Ubuntu 16.04
 
