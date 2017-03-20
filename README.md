@@ -11,8 +11,6 @@
 ## Preliminary tasks
 ====================
 
-![Just a test](ApplicationServices_AmazonAPIGateway_LARGE)
-
 1) Download and install [Terraform](https://www.terraform.io/downloads.html).
 
 Place the terraform binary in your environment path.
