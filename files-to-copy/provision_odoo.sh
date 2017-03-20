@@ -19,11 +19,11 @@
                         sudo apt-get install -y python-pybabel python-pychart python-pydot python-pyparsing python-pypdf python-reportlab python-requests
                         sudo apt-get install -y python-simplejson python-tz python-unicodecsv python-unittest2 python-vatnumber python-vobject
                         sudo apt-get install -y python-werkzeug python-xlwt python-yaml python-pip
-												sudo apt-get install -y libjpeg62-turbo xfonts-base xfonts-75dpi
+												sudo apt-get install -y libjpeg62-turbo xfonts-base xfonts-75dpi wkhtmltopdf
 
-												curl -o wkhtmltox.deb -SL http://nightly.odoo.com/extra/wkhtmltox-0.12.1.2_linux-jessie-amd64.deb \
-												&& echo '40e8b906de658a2221b15e4e8cd82565a47d7ee8 wkhtmltox.deb' | sha1sum -c - \
-												&& sudo dpkg --force-depends -i wkhtmltox.deb
+												#curl -o wkhtmltox.deb -SL http://nightly.odoo.com/extra/wkhtmltox-0.12.1.2_linux-jessie-amd64.deb \
+												#&& echo '40e8b906de658a2221b15e4e8cd82565a47d7ee8 wkhtmltox.deb' | sha1sum -c - \
+												#&& sudo dpkg --force-depends -i wkhtmltox.deb
 
                         sudo apt-get install -y odoo
 

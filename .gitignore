@@ -8,3 +8,4 @@ devops*.*
 cloudflare_ips.txt
 ips.txt
 readme.txt
+.DS_Store
