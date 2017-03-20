@@ -61,7 +61,6 @@ provisioner "file" {
   provisioner "remote-exec"	{
 			inline = [
 
-			"cd /tmp && sudo tar zxvf files.tar.gz",
 			"sudo chmod +x /tmp/provision_odoo.sh",
 			"/tmp/provision_odoo.sh"
 
