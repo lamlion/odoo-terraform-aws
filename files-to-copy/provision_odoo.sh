@@ -9,6 +9,8 @@
                         sudo adduser --system --home=/opt/odoo --group odoo
                         sudo mkdir -p /var/lib/odoo
                         sudo apt-get update -y
+												sudo apt-get upgrade -y
+												sudo apt-get install odoo -y
 
 			sudo apt-get install postgresql -y
 			sudo -u postgres bash -c "psql -c \"CREATE ROLE odoo WITH PASSWORD 'odoo' CREATEDB LOGIN;\""
@@ -25,7 +27,7 @@
 												#&& echo '40e8b906de658a2221b15e4e8cd82565a47d7ee8 wkhtmltox.deb' | sha1sum -c - \
 												#&& sudo dpkg --force-depends -i wkhtmltox.deb
 
-                        sudo apt-get install -y odoo
+                        sudo apt-get install odoo -y
 
                                 # Install and configure Apache Reverse proxy for odoo
 
