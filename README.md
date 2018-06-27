@@ -16,7 +16,7 @@
 Place the terraform binary in your environment path.
 
 
-2) Create RSA keypair for accessing EC2 instance. Public key will be copied to EC2 instance.
+2) Create RSA keypair for accessing EC2 instance. Public key will be copied to the EC2 instance.
 
 In OSX or Linux use the following command:
 
